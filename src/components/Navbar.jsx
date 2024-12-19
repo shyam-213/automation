@@ -50,7 +50,7 @@ export default function Example() {
                             <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow" />
 
                             <div className="relative bg-white">
-                              <div className="mx-auto max-w-7xl px-8">
+                              <div className="mx-auto max-w-7xl px-4">
                                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
                                   <div className="grid grid-cols-4 gap-x-8 gap-y-10 text-sm">
                                     {category.sections.map((section) => (
@@ -65,11 +65,11 @@ export default function Example() {
                                         >
                                           {section.items.map((item) => (
                                             <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-orange-500 hover:underline">
+                                                <a href={item.href} className="hover:text-orange-500 ">
                                                 {item.name}
-                                                {item.description}
+                                                <br />
+                                                <a href="" className='hover:underline'>{item.description}</a>
                                               </a>
-
                                             </li>
                                           ))}
                                         </ul>

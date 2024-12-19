@@ -1,7 +1,7 @@
 import { TopSearches, PopularApps, ExplorePlatform, Company } from "../constants/Constants";
 const Footer = () => {
   return (
-    <footer className="mt-20 border-t py-10 border-neutral-700">
+    <footer className="mt-20 p-8 border-t py-10 border-neutral-700">
       <div className="grid grid-cols-3 lg:grid-cols-4 gap-1">
         <div>
           <h3 className="text-md font-semibold mb-4">Top Searches</h3>
