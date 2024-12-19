@@ -1,4 +1,4 @@
-import { TopSearches, PopularApps, ExplorePlatform, Company } from "../constants";
+import { TopSearches, PopularApps, ExplorePlatform, Company } from "../constants/Constants";
 const Footer = () => {
   return (
     <footer className="mt-20 border-t py-10 border-neutral-700">
