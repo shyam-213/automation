@@ -5,6 +5,7 @@ import { BrowserRouter, Routes ,Route} from "react-router-dom";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
+import Demo from "./components/Demo";
 
 
 const App = () => {
@@ -12,10 +13,11 @@ const App = () => {
     <>
       
       <BrowserRouter>
+       
          <Navbar />
         <Routes>
 
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Demo />}></Route>
           <Route path="/Signup" element={<Signup />}></Route>
             <Route path="/Signin" element={<Signin/>}></Route>
           
