@@ -102,9 +102,9 @@ export default function Example() {
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Contact Sales
                   </a>
-                  <button className="text-sm font-medium text-gray-700 hover:text-gray-800 hover:bg-gray-200 rounded-md px-4 py-2">
+                  <a href={"/Signin"} className="text-sm font-medium text-gray-700 hover:text-gray-800 hover:bg-gray-200 rounded-md px-4 py-2">
                     Log in
-                  </button>
+                  </a>
                   
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                   <a href={"/Signup"} className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-green-300 hover:bg-green-500 rounded-md px-4 py-2">
