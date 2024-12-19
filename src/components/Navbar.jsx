@@ -19,12 +19,12 @@ export default function Example() {
   return (
     <div className="bg-white">
       {/* Desktop menu */}
-      <header className="relative bg-white">
+      <header className="sticky top-0 z-50 bg-white">
         <nav aria-label="Top" className="max-w-full px-4">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              <div className="ml-4 flex lg:ml-2">
                 <a href={"/"} className="text-2xl font-bold">Sel<span className="text-indigo-600">Key</span></a>
               </div>
 
