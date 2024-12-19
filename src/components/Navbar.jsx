@@ -72,7 +72,9 @@ export default function Example() {
                                             <li key={item.name} className="flex">
                                               <a href={item.href} className="hover:text-orange-500 hover:underline">
                                                 {item.name}
+                                                {item.description}
                                               </a>
+
                                             </li>
                                           ))}
                                         </ul>
