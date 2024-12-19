@@ -30,7 +30,7 @@ export default function Example() {
             <div className="flex h-16 items-center">
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/" className="text-2xl font-bold">Sel<span className="text-indigo-600">Key</span></a>
+                <a href={"/"} className="text-2xl font-bold">Sel<span className="text-indigo-600">Key</span></a>
               </div>
 
               {/* Flyout menus */}
@@ -41,7 +41,7 @@ export default function Example() {
                       {({ open }) => (
                         <>
                           <div className="relative flex">
-                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2">
+                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2 data-[open]:border-orange-600">
                               {category.name}
                               <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform duration-200 ${open ? 'transform -rotate-180' : ''}`} />
                             </PopoverButton>
@@ -55,9 +55,9 @@ export default function Example() {
                             <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow" />
 
                             <div className="relative bg-white">
-                              <div className="mx-auto max-w-8x1 px-4">
+                              <div className="mx-auto max-w-7xl px-8">
                                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
-                                  <div className="grid grid-cols-4 gap-x-8 gap-y-8 text-sm">
+                                  <div className="grid grid-cols-4 gap-x-8 gap-y-10 text-sm">
                                     {category.sections.map((section) => (
                                       <div key={section.id}>
                                         <p id={`${section.name}-heading`} className="font-medium text-gray-900">
@@ -70,11 +70,11 @@ export default function Example() {
                                         >
                                           {section.items.map((item) => (
                                             <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-orange-500 ">
+                                              <a href={item.href} className="hover:text-orange-500 hover:underline">
                                                 {item.name}
-                                                <br />
-                                                <a href="" className='hover:underline'>{item.description}</a>
+                                                {item.description}
                                               </a>
+
                                             </li>
                                           ))}
                                         </ul>
@@ -112,9 +112,9 @@ export default function Example() {
                   </button>
                   
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <button className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-green-300 hover:bg-green-500 rounded-md px-4 py-2">
+                  <a href={"/Signup"} className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-green-300 hover:bg-green-500 rounded-md px-4 py-2">
                     Create account
-                  </button>
+                  </a>
                 </div>
                 
                 <button
