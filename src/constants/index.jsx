@@ -254,5 +254,5 @@ export const Company = [
   { href: "/terms-of-service", text: "Terms of Service" },
   { href: "/cookie-settings", text: "Cookie Settings" },
   { href: "/legal-notice", text: "Legal Notice" },
-  { href: "/manage-cookie-preferences", text: "Manage Cookie Preferences" },
+ 
 ];
