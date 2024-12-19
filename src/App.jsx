@@ -7,15 +7,17 @@ import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 
 
+
 const App = () => {
   return (
     <>
       
       <BrowserRouter>
+       
          <Navbar />
         <Routes>
 
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home/>}></Route>
           <Route path="/Signup" element={<Signup />}></Route>
             <Route path="/Signin" element={<Signin/>}></Route>
           
