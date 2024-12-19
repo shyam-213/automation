@@ -41,7 +41,7 @@ export default function Example() {
                       {({ open }) => (
                         <>
                           <div className="relative flex">
-                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2 data-[open]:border-orange-600">
+                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2">
                               {category.name}
                               <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform duration-200 ${open ? 'transform -rotate-180' : ''}`} />
                             </PopoverButton>
@@ -55,9 +55,9 @@ export default function Example() {
                             <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow" />
 
                             <div className="relative bg-white">
-                              <div className="mx-auto max-w-7xl px-8">
+                              <div className="mx-auto max-w-8x1 px-4">
                                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
-                                  <div className="grid grid-cols-4 gap-x-8 gap-y-10 text-sm">
+                                  <div className="grid grid-cols-4 gap-x-8 gap-y-8 text-sm">
                                     {category.sections.map((section) => (
                                       <div key={section.id}>
                                         <p id={`${section.name}-heading`} className="font-medium text-gray-900">
@@ -70,11 +70,11 @@ export default function Example() {
                                         >
                                           {section.items.map((item) => (
                                             <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-orange-500 hover:underline">
+                                                <a href={item.href} className="hover:text-orange-500 ">
                                                 {item.name}
-                                                {item.description}
+                                                <br />
+                                                <a href="" className='hover:underline'>{item.description}</a>
                                               </a>
-
                                             </li>
                                           ))}
                                         </ul>
