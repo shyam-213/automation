@@ -9,11 +9,6 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import { navigation } from "../constants/Constants";
@@ -41,7 +36,7 @@ export default function Example() {
                       {({ open }) => (
                         <>
                           <div className="relative flex">
-                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2 data-[open]:border-orange-600">
+                            <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2 ">
                               {category.name}
                               <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform duration-200 ${open ? 'transform -rotate-180' : ''}`} />
                             </PopoverButton>
