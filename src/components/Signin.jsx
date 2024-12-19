@@ -18,7 +18,7 @@ export default function Signin() {
         <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
           Sign In 
         </h2>
-        <span className=" text-gray-400">Signin account & build something great!</span>
+  
       </div>
 
       <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-10">
@@ -63,9 +63,15 @@ export default function Signin() {
             </div>
           </div>
 
+             <div className="text-sm">
+                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                    Forgot password?
+                  </a>
+                </div>
+
          
         </div>
-        <div className="mt-10">
+        <div className="mt-6">
           <button
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -74,12 +80,14 @@ export default function Signin() {
           </button>
         </div>
 
-        <p className="mt-6 text-center text-sm/6 text-gray-500">
+        <p className="mt-6 text-centertext-sm/6 text-gray-500">
             Don't have an account?{' '}
           <a href={"/Signup"} className="font-semibold text-indigo-600 hover:text-indigo-500">
                 Sign Up
-            </a>
-          </p>
+          </a>
+        </p>
+        
+            
       </form>
     </div>
   );

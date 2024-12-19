@@ -8,7 +8,7 @@ export default function Signup() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className=" bg-white px-6 sm:py-10 lg:px-8">
+    <div className=" bg-white px-6 py-36 sm:py-12 lg:px-8">
       <div className="sm:mx-auto text-center sm:w-full sm:max-w-sm">
         <img
           alt="Your Company"
@@ -18,7 +18,7 @@ export default function Signup() {
         <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
           Create your account
         </h2>
-        <span className=" text-gray-400">create account & build something great!</span>
+       
       </div>
 
       <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-10">

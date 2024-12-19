@@ -219,12 +219,12 @@ export default function Example() {
                 </a>
               </div>
               <div className="flex gap-4 w-full">
-                <button className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:bg-gray-50">
+                <a href={"/Signin"} className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:bg-gray-50">
                   Log in
-                </button>
-                <button className="w-1/2 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700">
+                </a>
+                <a href={"/Signup"} className="w-1/2 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700">
                   Create account
-                </button>
+                </a>
               </div>
             </div>
           </DialogPanel>
