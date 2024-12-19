@@ -1,20 +1,26 @@
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import FeatureSection from "./components/FeatureSection";
-import Footer from "./components/Footer";
-import Pricing from "./components/Pricing";
 
+import Footer from "./components/Footer";
+import { BrowserRouter, Routes } from "react-router-dom";
+import { Route } from "lucide-react";
+import Home from "./components/Home";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <div className="max-w-7xl mx-auto pt-20 px-6">
-        <HeroSection />
-        <FeatureSection />
-        <Pricing />
-        <Footer />
-      </div>
+      
+      <BrowserRouter>
+         <Navbar />
+        <Routes>
+
+          <Route path="/" element={<Home/>}></Route>
+          
+          </Routes>
+       <Footer />
+      </BrowserRouter>
+
+   
+     
     </>
   );
 };
