@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/ecommerce")
+  .connect("mongodb+srv://chetan:chetan88@selkey.uvauy.mongodb.net/?retryWrites=true&w=majority&appName=selkey")
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
