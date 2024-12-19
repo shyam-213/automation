@@ -65,7 +65,7 @@ export default function Example() {
                                         >
                                           {section.items.map((item) => (
                                             <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-orange-500 hover:underline">
+                                              <a href={item.href} className="hover:text-orange-600 hover:underline">
                                                 {item.name}
                                                 {item.description}
                                               </a>
@@ -87,7 +87,7 @@ export default function Example() {
 
                   <a
                     href="#"
-                    className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="flex items-center text-sm font-medium text-gray-700 hover:text-orange-600"
                   >
                     Pricing
                   </a>
@@ -96,18 +96,18 @@ export default function Example() {
 
               <div className="ml-auto flex items-center justify-end">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-orange-600">
                     Explore Apps
                   </a>
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-orange-600">
                     Contact Sales
                   </a>
-                  <a href={"/Signin"} className="text-sm font-medium text-gray-700 hover:text-gray-800 hover:bg-gray-200 rounded-md px-4 py-2">
+                  <a href={"/Signin"} className="text-sm font-medium text-gray-700 hover:text-orange-600 hover:bg-gray-200 rounded-md px-4 py-2">
                     Log in
                   </a>
                   
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <a href={"/Signup"} className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-green-300 hover:bg-green-500 rounded-md px-4 py-2">
+                  <a href={"/Signup"} className="text-sm font-medium text-gray-700 hover:text-orange-600 bg-green-300 hover:bg-green-500 rounded-md px-4 py-2">
                     Create account
                   </a>
                 </div>
@@ -115,7 +115,7 @@ export default function Example() {
                 <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden hover:text-orange-600"
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
@@ -143,7 +143,7 @@ export default function Example() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-orange-600"
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Close menu</span>
@@ -168,7 +168,7 @@ export default function Example() {
                           icon.style.transform = 'rotate(0deg)';
                         }
                       }}
-                      className="flex w-full items-center justify-between py-4 text-base font-medium text-gray-900"
+                      className="flex w-full items-center justify-between py-4 text-base font-medium text-gray-900 hover:text-orange-600"
                     >
                       {category.name}
                       <svg
@@ -190,7 +190,7 @@ export default function Example() {
                           <ul className="mt-6 space-y-6">
                             {section.items.map((item) => (
                               <li key={item.name}>
-                                <a href={item.href} className="text-gray-500 hover:text-gray-900">
+                                <a href={item.href} className="text-gray-500 hover:text-orange-600">
                                   {item.name}
                                 </a>
                               </li>
@@ -206,7 +206,7 @@ export default function Example() {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="/pricing" className="-m-2 block p-2 font-medium text-gray-900">
+                <a href="/pricing" className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600">
                   Pricing
                 </a>
               </div>
@@ -214,15 +214,15 @@ export default function Example() {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <a href="#" className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600">
                   Explore Apps
                 </a>
               </div>
               <div className="flex gap-4 w-full">
-                <a href={"/Signin"} className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:bg-gray-50">
+                <a href={"/Signin"} className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50">
                   Log in
                 </a>
-                <a href={"/Signup"} className="w-1/2 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700">
+                <a href={"/Signup"} className="w-1/2 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:text-orange-600">
                   Create account
                 </a>
               </div>
