@@ -252,6 +252,7 @@ export const ExplorePlatform = [
 export const Company = [
   { href: "/privacy-policy", text: "Privacy Policy" },
   { href: "/terms-of-service", text: "Terms of Service" },
-  
+  { href: "/cookie-settings", text: "Cookie Settings" },
+  { href: "/cookie-settings", text: "Cookie" },
   { href: "/manage-cookie-preferences", text: "Manage Cookie Preferences" },
 ];
