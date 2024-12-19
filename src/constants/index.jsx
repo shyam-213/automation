@@ -22,7 +22,7 @@ export const navigation = {
           id: 'features',
           name: 'Features',
           items: [
-            { name: 'Automation', href: '/automation' },
+            
             { name: 'Integrations', href: '/integrations' },
             { name: 'Apps', href: '/apps' },
           ],
