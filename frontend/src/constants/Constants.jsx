@@ -12,6 +12,7 @@ import user4 from "../assets/profile-pictures/user4.jpg";
 import user5 from "../assets/profile-pictures/user5.jpg";
 import user6 from "../assets/profile-pictures/user6.jpg";
 
+
 export const navigation = {
   categories: [
     {

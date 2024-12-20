@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import {
   Dialog,
   DialogBackdrop,
@@ -11,18 +11,18 @@ import {
   PopoverPanel,
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
-import { navigation } from "../constants/Constants";
+import { navigation } from "../../constants/Constants";
 
 export default function Example() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="bg-white sticky top-0 z-50">
       {/* Desktop menu */}
-      <header className="sticky top-0 z-50 bg-white">
+      <header className="bg-white">
         <nav aria-label="Top" className="max-w-full px-4">
           <div className="border-b border-gray-200">
-            <div className="flex h-16 items-center">
+            <div className=" flex h-16 items-center">
               {/* Logo */}
               <div className="ml-4 flex lg:ml-2">
                 <a href={"/"} className="text-2xl font-bold">Sel<span className="text-indigo-600">Key</span></a>
@@ -30,7 +30,7 @@ export default function Example() {
 
               {/* Flyout menus */}
               <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch">
-                <div className="flex h-full space-x-8">
+                <div className="flex h-full space-x-8 ">
                   {navigation.categories.map((category) => (
                     <Popover key={category.id} className="flex">
                       {({ open }) => (
@@ -86,7 +86,7 @@ export default function Example() {
                   ))}
 
                   <a
-                    href="#"
+                    href="/pricing"
                     className="flex items-center text-sm font-medium text-gray-700 hover:text-orange-600"
                   >
                     Pricing
@@ -94,12 +94,12 @@ export default function Example() {
                 </div>
               </PopoverGroup>
 
-              <div className="ml-auto flex items-center justify-end">
+              <div className=" ml-auto m-4 flex items-center justify-end">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-orange-600">
+                  <a href="/explore-apps" className="text-sm lg:ml-3 font-medium text-gray-700 hover:text-orange-600">
                     Explore Apps
                   </a>
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-orange-600">
+                  <a href="/contact-sales" className="text-sm font-medium text-gray-700 hover:text-orange-600">
                     Contact Sales
                   </a>
                   <a href={"/Signin"} className="text-sm font-medium text-gray-700 hover:text-orange-600 rounded-md px-4 py-2">
@@ -132,6 +132,7 @@ export default function Example() {
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+          onClick={() => setOpen(false)}
         />
 
         <div className="fixed inset-0 z-40 flex justify-end">
@@ -214,15 +215,15 @@ export default function Example() {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600">
+                <a href="/explore-apps" className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600">
                   Explore Apps
                 </a>
               </div>
               <div className="flex gap-4 w-full">
-                <a href={"/Signin"} className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50">
+                <a href={"/Signin"} className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 flex items-center justify-center">
                   Log in
                 </a>
-                <a href={"/Signup"} className="w-1/2 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:text-orange-600">
+                <a href={"/Signup"} className="w-3/4 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:text-orange-600 flex items-center justify-center">
                   Create account
                 </a>
               </div>

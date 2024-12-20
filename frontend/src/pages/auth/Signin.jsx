@@ -5,10 +5,8 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { Field, Label, Switch } from "@headlessui/react";
 
 export default function Signin() {
-  const [agreed, setAgreed] = useState(false);
-
   return (
-    <div className=" bg-white px-6 sm:py-10 lg:px-8">
+    <div className="bg-white px-6 sm:py-10 lg:px-8">
       <div className="sm:mx-auto text-center sm:w-full sm:max-w-sm">
         <img
           alt="Your Company"
@@ -16,15 +14,15 @@ export default function Signin() {
           className="mx-auto h-12 w-auto"
         />
         <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Sign In 
+          Sign In
         </h2>
-  
+        <p className="mt-2 text-center text-sm/6 text-gray-500">
+          Sign in to your account
+        </p>
       </div>
 
       <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        
-
           <div className="sm:col-span-2">
             <label
               htmlFor="email"
@@ -37,7 +35,7 @@ export default function Signin() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email adress"
+                placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
@@ -62,15 +60,8 @@ export default function Signin() {
               />
             </div>
           </div>
-
-             <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </a>
-                </div>
-
-         
         </div>
+
         <div className="mt-6">
           <button
             type="submit"
@@ -80,14 +71,17 @@ export default function Signin() {
           </button>
         </div>
 
-        <p className="mt-6 text-centertext-sm/6 text-gray-500">
+        <div className="mt-4 flex items-center justify-between">
+          <p className="text-sm/6 text-gray-500">
             Don't have an account?{' '}
-          <a href={"/Signup"} className="font-semibold text-indigo-600 hover:text-indigo-500">
-                Sign Up
+            <a href="/Signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
+              Sign Up
+            </a>
+          </p>
+          <a href="/forgotPassword" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+            Forgot password?
           </a>
-        </p>
-        
-            
+        </div>
       </form>
     </div>
   );

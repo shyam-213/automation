@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import { Field, Label, Switch } from "@headlessui/react";
 
 export default function Signup() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className=" bg-white px-6 py-36 sm:py-12 lg:px-8">
+    <div className="bg-white px-6 sm:py-10 lg:px-8">
       <div className="sm:mx-auto text-center sm:w-full sm:max-w-sm">
         <img
           alt="Your Company"
@@ -16,44 +14,47 @@ export default function Signup() {
           className="mx-auto h-12 w-auto"
         />
         <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Create your account
+          Create an Account
         </h2>
-       
+        <p className="mt-2 text-center text-sm/6 text-gray-500">
+          Create an account to get started with your free trial
+        </p>
       </div>
 
       <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
-              htmlFor="first-name"
+              htmlFor="firstName"
               className="block text-sm/6 font-semibold text-gray-900"
             >
               First name
             </label>
             <div className="mt-2.5">
               <input
-                id="first-name"
-                name="first-name"
+                id="firstName"
+                name="firstName"
                 type="text"
-                placeholder="First name"
+                placeholder="Enter your first name"
                 autoComplete="given-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
             </div>
           </div>
+
           <div>
             <label
-              htmlFor="last-name"
+              htmlFor="lastName"
               className="block text-sm/6 font-semibold text-gray-900"
             >
               Last name
             </label>
             <div className="mt-2.5">
               <input
-                id="last-name"
-                name="last-name"
+                id="lastName"
+                name="lastName"
                 type="text"
-                placeholder="Last name"
+                placeholder="Enter your last name"
                 autoComplete="family-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
@@ -72,7 +73,7 @@ export default function Signup() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email adress"
+                placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
@@ -91,8 +92,8 @@ export default function Signup() {
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Password"
-                autoComplete="password"
+                placeholder="Create a password"
+                autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
             </div>
@@ -100,38 +101,53 @@ export default function Signup() {
 
           <div className="sm:col-span-2">
             <label
-              htmlFor="cpassword"
+              htmlFor="confirmPassword"
               className="block text-sm/6 font-semibold text-gray-900"
             >
               Confirm Password
             </label>
             <div className="mt-2.5">
               <input
-                id="cpassword"
-                name="cpassword"
+                id="confirmPassword"
+                name="confirmPassword"
                 type="password"
-                placeholder="Confirm password"
-                autoComplete="cpassword"
+                placeholder="Confirm your password"
+                autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
             </div>
           </div>
+
+          <div className="sm:col-span-2">
+            <div className="flex items-center gap-x-3">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              />
+              <label htmlFor="terms" className="text-sm text-gray-600">
+                I agree to the{' '}
+                <a href="/terms" className="font-semibold text-indigo-600 hover:text-indigo-500">Terms and Conditions</a>
+              </label>
+            </div>
+          </div>
         </div>
-        <div className="mt-10">
+
+        <div className="mt-6">
           <button
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Create Account
-          </button>
+            disabled={!agreed}
+            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-400"
+          >Sign up</button>
         </div>
 
         <p className="mt-6 text-center text-sm/6 text-gray-500">
-            Already have an account?{' '}
-          <a href={"/Signin"} className="font-semibold text-indigo-600 hover:text-indigo-500">
-                Sign In
-            </a>
-          </p>
+          Already have an account?{' '}
+          <a href="/Signin" className="font-semibold text-indigo-600 hover:text-indigo-500">Sign In</a>
+        </p>
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-import { TopSearches, PopularApps, ExplorePlatform, Company } from "../constants/Constants";
+import { TopSearches, PopularApps, ExplorePlatform, Company } from "../../constants/Constants";
 const Footer = () => {
   return (
     <footer className="justify-between mt-20 p-5 border-t py-10 border-neutral-700">
