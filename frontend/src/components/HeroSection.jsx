@@ -15,12 +15,12 @@ const HeroSection = () => {
       </p>
       <div className="flex justify-center my-10">
         <a
-          href="#"
+          href="/signup"
           className="bg-gradient-to-r bg-orange-300 hover:bg-orange-500 py-3 px-4 mx-3 rounded-md"
         >
           Start for free
         </a>
-        <a href="#" className="py-3 px-4 mx-3 rounded-md border">
+        <a href="/docs" className="py-3 px-4 mx-3 rounded-md border">
           Documentation
         </a>
       </div>
