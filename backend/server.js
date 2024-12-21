@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-mongoose.connect("mongodb+srv://shyam:Shyam123@selkey-automation.efwbl.mongodb.net/").then(() => 
+mongoose.connect("mongodb://0.0.0.0:27017/").then(() => 
   console.log("Connected to MongoDB successfully")
 ).catch((error) => {
   console.log(error);
