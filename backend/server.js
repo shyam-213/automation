@@ -12,38 +12,27 @@ mongoose.connect("mongodb://0.0.0.0:27017/selkey").then(() =>
 const app = express();
 app.use(express.json())
 app.use(cors())
-
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: [
-//       "Content-Type",
-//       "Authorization",
-//       "cache-control",
-//       "expires",
-//       "pragma",
-//     ],
-//     credentials: true,
-//   })
-// );
-
-// app.use(cookieParser());
-// app.use(express.json());
-
-const userModel=require('./Models/Users')
-
-app.post('/createuser', (req, res) => { 
-  userModel.create(req.body)
-    .then(users =>res.json(users))
-  .catch(err=>res.json(err))
-})
-
-// app.get("/", (req, res) => {
-//   res.send("Hello World");
-// });
-
 const port = process.env.PORT || 5000;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "cache-control",
+      "expires",
+      "pragma",
+    ],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
+app.use(express.json());
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
