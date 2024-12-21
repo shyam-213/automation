@@ -1,7 +1,7 @@
 import { TopSearches, PopularApps, ExplorePlatform, Company } from "../../constants/Constants";
 const Footer = () => {
   return (
-    <footer className="justify-between mt-20 p-5 border-t py-10 border-neutral-700">
+    <footer className="container justify-between mt-20 p-5 border-t py-10 border-neutral-700">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10">
         <div className="space-y-4">
           <div>
