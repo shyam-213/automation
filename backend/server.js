@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-mongoose
-    .connect(
-        "mongodb://localhost:27017/ck"
-    ).then(() => console.log("Connected to MongoDB successfully"))
-    .catch((error) => console.log(error));
+mongoose.connect("mongodb+srv://shyam:Shyam123@selkey-automation.efwbl.mongodb.net/").then(() => 
+  console.log("Connected to MongoDB successfully")
+).catch((error) => {
+  console.log(error);
+});
 
 const app = express();
 app.use(express.json())
