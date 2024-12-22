@@ -14,14 +14,21 @@ export default function Signup() {
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
 
-  const handelSubmit = (e) => { 
-    e.preventDefault()
-       axios.post("http://localhost:5000/createuser", {fname,lname,email,password})
-      .then(result => { 
-        console.log(result);
-         navigate('/signin');
-      })
-    .catch(err=>console.log(err))
+  const handelSubmit = (event) => { 
+    event.preventDefault();
+    dispatch(registerUser(formData)).then((data) => {
+      if (data?.payload?.success) {
+        toast({
+          title: data?.payload?.message,
+        });
+        navigate("/signin");
+      } else {
+        toast({
+          title: data?.payload?.message,
+          variant: "destructive",
+        });
+      }
+    });
   }
 
   return (
@@ -122,7 +129,7 @@ export default function Signup() {
             </div>
           </div>
 
-          {/* <div className="sm:col-span-2">
+          <div className="sm:col-span-2">
             <label
               htmlFor="confirmPassword"
               className="block text-sm/6 font-semibold text-gray-900"
@@ -139,7 +146,7 @@ export default function Signup() {
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
             </div>
-          </div> */}
+          </div>
 
           <div className="sm:col-span-2">
             <div className="flex items-center gap-x-3">
