@@ -14,11 +14,12 @@ import History from "./Dashboard/Component/History";
 import Setting from "./Dashboard/Component/Setting";
 import Help from "./Dashboard/Component/Help";
 import Workflow from "./Dashboard/Component/Workflow";
+import Footer1 from "./Dashboard/Component/Footer1";
 
 
 const App = () => {
 
-  const [isLogin, setisLogin] = useState(false)
+  const [isLogin, setisLogin] = useState(true)
 
   return (
     <>
@@ -37,7 +38,8 @@ const App = () => {
                     <Route path="/history" element={<History />}></Route>
                     <Route path="/setting" element={<Setting />}></Route>
                     <Route path="/help" element={<Help />}></Route>
-                  </Routes>
+                </Routes>
+               <Footer1/>
                 </div>
               </div>
 
@@ -50,12 +52,13 @@ const App = () => {
                 <Route path="/forgotPassword" element={<ForgotPassword />}></Route>
                 <Route path="/pricing" element={<Pricing />}></Route>
               </Routes>
+              <Footer />
             </>
               
         }
 
 
-        <Footer />
+       
       </BrowserRouter>
     </>
   );

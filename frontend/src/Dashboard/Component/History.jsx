@@ -17,7 +17,7 @@ export default function History() {
         <div className="grid grid-cols-1">
           <div className="block">
             <p className="font-semibold text-3xl mb-4">Task History</p>
-            <span className="text-gray-400 max-sm:text-sm">
+            <span className="text-gray-500 text-sm ">
               View all of your task history. Any action performed in your workflow is considered a task. Triggers are not included in the task count, and internal applications of Pabbly Connect, such as filters, routers, and formatters, are also not considered tasks. Please note that the task history is only available for the last 15 days. 
             </span>
           </div>

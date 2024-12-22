@@ -8,7 +8,7 @@ export default function Workflow() {
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div className="block">
             <p className="font-semibold text-3xl mb-4">Workflows</p>
-            <span className="text-gray-400 max-sm:text-sm">
+            <span className="text-gray-500 text-sm ">
               Create automation workflow below.
             </span>
           </div>
