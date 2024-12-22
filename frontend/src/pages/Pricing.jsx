@@ -48,7 +48,7 @@ const Pricing = () => {
     
     
       <div className="container mx-auto ">
-        <h2 className="text-5xl my-14 uppercase max-sm:text-3xl max-md:text-4xl underline underline-offset-8 decoration-indigo-700 font-semibold text-center">Pricing</h2>
+        <h2 className="text-4xl my-14 uppercase max-sm:text-3xl max-md:text-4xl  font-semibold text-center">Pricing</h2>
         <div className="grid grid-cols-1 justify-items-center gap-3 lg:grid-cols-4 lg:p-6 sm:grid-cols-2">
 
           
