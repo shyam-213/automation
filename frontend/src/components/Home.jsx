@@ -5,10 +5,10 @@ import Pricing from '../pages/Pricing'
 
 export default function Home() {
   return (
-    <div className='p-20'>
+    <div className='lg:p-10 p-3 mt-6'>
       <HeroSection />
       <FeatureSection />
-      <Pricing/>
+      <Pricing />
     </div>
   )
 }
