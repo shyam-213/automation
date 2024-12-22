@@ -33,8 +33,8 @@ const HeroSection = () => {
       </div> */}
 
       <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-          <h1 class="mb-4 text-4xl font-bold max-sm:text-3xl tracking-tight leading-none bg-clip-text bg-gradient-to-r from-indigo-500  to-sky-800 text-transparent  md:text-5xl lg:text-6xl dark:text-white"> Automate without limits with Selkey</h1>
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-38 md:py-36 sm:py-16">
+          <h1 class="mb-4 text-4xl font-bold max-sm:text-1xl tracking-tight leading-none bg-clip-text bg-gradient-to-r from-indigo-500  to-sky-800 text-transparent  md:text-5xl lg:text-6xl dark:text-white"> Automate without limits with Selkey</h1>
           <p class="mb-8 text-lg max-sm:text-base font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"> Turn chaos into smooth operations by automating workflows yourself—no developers, no IT tickets,
             no delays. The only limit is your imagination.</p>
           <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
