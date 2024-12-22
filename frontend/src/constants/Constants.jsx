@@ -260,10 +260,9 @@ export const ExplorePlatform = [
   { href: "#", text: "Advertising and Marketing" },
   { href: "#", text: "Development Tools" },
   { href: "#", text: "Apps & Integrations" },
-  { href: "#", text: "Blog" },
+
   { href: "#", text: "Videos" },
-  { href: "#", text: "Documentation" },
-  { href: "#", text: "Show more" },
+
 ];
 export const Company = [
   { href: "/privacy-policy", text: "Privacy Policy" },
