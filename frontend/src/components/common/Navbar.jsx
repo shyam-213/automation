@@ -44,7 +44,7 @@ export default function Example() {
                         {({ open }) => (
                           <>
                             <div className="relative flex">
-                              <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-semibold text-gray-700 transition-all duration-200 ease-out hover:text-orange-600 hover:border-b-2 ">
+                              <PopoverButton className="relative outline-none rounded-md -mb-px flex items-center border-b-2 border-transparent pt-px text-sm tracking-wide font-semibold text-gray-700 transition-all duration-200 ease-out hover:text-indigo-600 hover:border-b-2 ">
                                 {category.name}
                                 <ChevronDownIcon
                                   className={`ml-2 h-4 w-4 transition-transform duration-200 ${
@@ -88,7 +88,7 @@ export default function Example() {
                                               >
                                                 <a
                                                   href={item.href}
-                                                  className="hover:text-orange-600 hover:underline"
+                                                  className="hover:text-indigo-600 hover:underline"
                                                 >
                                                   {item.name}
                                                   {item.description}
@@ -110,7 +110,7 @@ export default function Example() {
 
                     <a
                       href="/pricing"
-                      className="flex items-center text-sm font-semibold text-gray-700 hover:text-orange-600"
+                      className="flex items-center text-sm font-semibold text-gray-700 hover:text-indigo-600"
                     >
                       Pricing
                     </a>
@@ -118,22 +118,22 @@ export default function Example() {
                 </PopoverGroup>
 
                 <div className=" ml-auto m-4 flex items-center justify-end">
-                  <div className="hidden  lg:flex lg:flex-1 lg:items-center lg:justify-end space-x-3">
+                  <div className="hidden  lg:flex lg:flex-1 lg:items-center  lg:justify-end space-x-3">
                     <a
                       href="/explore-apps"
-                      className="text-sm font-semibold lg:ml-3  text-gray-700 hover:text-orange-600"
+                      className="text-sm font-semibold lg:ml-3  tracking-wide text-gray-700 hover:text-indigo-600"
                     >
                       Explore Apps
                     </a>
                     <a
                       href="/contact-sales"
-                      className="text-sm font-semibold  text-gray-700 hover:text-orange-600"
+                      className="text-sm font-semibold tracking-wide text-gray-700 hover:text-indigo-600"
                     >
                       Contact Sales
                     </a>
                     <a
                       href={"/Signin"}
-                      className="text-sm font-semibold  text-gray-700 hover:text-orange-600"
+                      className="text-sm font-semibold tracking-wide text-indigo-700 hover:text-orange-600"
                     >
                       Log in
                     </a>
@@ -141,7 +141,7 @@ export default function Example() {
                     <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                     <a
                       href={"/Signup"}
-                      className="text-sm font-semibold text-gray-700  bg-green-300 hover:bg-green-500 rounded-md px-4 py-2"
+                      className="text-sm font-semibold text-white tracking-wide bg-indigo-600  hover:bg-indigo-800 rounded-md px-4 py-2"
                     >
                       Create account
                     </a>
@@ -150,7 +150,7 @@ export default function Example() {
                   <button
                     type="button"
                     onClick={() => setOpen(true)}
-                    className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden hover:text-orange-600"
+                    className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden hover:text-indigo-600"
                   >
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open menu</span>
@@ -183,7 +183,7 @@ export default function Example() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-orange-600"
+                  className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-indigo-600"
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Close menu</span>
@@ -212,7 +212,7 @@ export default function Example() {
                             icon.style.transform = "rotate(0deg)";
                           }
                         }}
-                        className="flex w-full items-center justify-between py-4 text-base font-medium text-gray-900 hover:text-orange-600"
+                        className="flex w-full items-center justify-between py-4 text-base font-medium text-gray-900 hover:text-indigo-600"
                       >
                         {category.name}
                         <svg
@@ -245,7 +245,7 @@ export default function Example() {
                                 <li key={item.name}>
                                   <a
                                     href={item.href}
-                                    className="text-gray-500 hover:text-orange-600"
+                                    className="text-gray-500 hover:text-indigo-600"
                                   >
                                     {item.name}
                                   </a>
@@ -264,7 +264,7 @@ export default function Example() {
                 <div className="flow-root">
                   <a
                     href="/pricing"
-                    className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600"
+                    className="-m-2 block p-2 font-medium text-gray-900 hover:text-indigo-600"
                   >
                     Pricing
                   </a>
@@ -275,7 +275,7 @@ export default function Example() {
                 <div className="flow-root">
                   <a
                     href="/explore-apps"
-                    className="-m-2 block p-2 font-medium text-gray-900 hover:text-orange-600"
+                    className="-m-2 block p-2 font-medium text-gray-900 hover:text-indigo-600"
                   >
                     Explore Apps
                   </a>
@@ -283,13 +283,13 @@ export default function Example() {
                 <div className="flex gap-4 w-full">
                   <a
                     href={"/Signin"}
-                    className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 flex items-center justify-center"
+                    className="w-1/2 py-2 px-4 rounded-md border border-gray-300 font-medium text-indigo-900 hover:text-indigo-600 hover:bg-gray-50 flex items-center justify-center"
                   >
                     Log in
                   </a>
                   <a
                     href={"/Signup"}
-                    className="w-3/4 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:text-orange-600 flex items-center justify-center"
+                    className="w-3/4 py-2 px-4 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:text-indigo-600 flex items-center justify-center"
                   >
                     Create account
                   </a>
