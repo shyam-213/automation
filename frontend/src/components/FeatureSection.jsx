@@ -41,7 +41,7 @@ const FeatureSection = () => {
                 <div className="flex mb-3">
                   <span className=" text-indigo-600">{item.icon}</span>
                   <a href="#">
-                    <h5 class="mb-2 mx-5 text-1xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.text}</h5>
+                    <h5 class="mb-2 mx-5 text-lg font-semibold tracking-tight text-gray-900 dark:text-white">{item.text}</h5>
                   </a>
               </div>
                 <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">{item.description}</p>

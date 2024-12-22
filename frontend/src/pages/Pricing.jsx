@@ -56,7 +56,7 @@ const Pricing = () => {
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">49</span>
+              <span class="text-4xl font-extrabold tracking-tight">49</span>
               <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
             </div>
             <ul role="list" class="space-y-5 my-7">
@@ -110,7 +110,7 @@ const Pricing = () => {
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">100</span>
+              <span class="text-4xl font-extrabold tracking-tight">100</span>
               <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
             </div>
             <ul role="list" class="space-y-5 my-7">
@@ -164,7 +164,7 @@ const Pricing = () => {
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">89</span>
+              <span class="text-4xl font-extrabold tracking-tight">89</span>
               <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
             </div>
             <ul role="list" class="space-y-5 my-7">
@@ -217,9 +217,9 @@ const Pricing = () => {
           <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
-              <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">23</span>
-              <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
+            
+              <span class="text-4xl font-extrabold tracking-tight">Free</span>
+            
             </div>
             <ul role="list" class="space-y-5 my-7">
               <li class="flex items-center">
