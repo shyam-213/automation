@@ -1,6 +1,57 @@
 import React from 'react'
+import { MoreVertical, ChevronUp, Search } from 'lucide-react';
 
 export default function Workflow() {
+
+  const apps = [
+    {
+      id: 1,
+      name: 'Webhook',
+      icon: '🔗',
+      color: 'bg-green-500'
+    },
+    {
+      id: 2,
+      name: 'Email Parser',
+      subtitle: '(Pabbly)',
+      icon: '📧',
+      color: 'bg-green-500'
+    },
+    {
+      id: 3,
+      name: 'Schedule',
+      subtitle: '(Pabbly)',
+      icon: 'P',
+      color: 'bg-green-500'
+    },
+    {
+      id: 4,
+      name: '123FormBuilder',
+      icon: '123',
+      color: 'bg-blue-500'
+    },
+    {
+      id: 5,
+      name: '360 Dialog',
+      subtitle: '(Cloud)',
+      icon: '360',
+      color: 'bg-pink-500'
+    },
+    {
+      id: 6,
+      name: '360 Dialog',
+      subtitle: '(On-Premise)',
+      icon: '360',
+      color: 'bg-pink-500'
+    },
+    {
+      id: 7,
+      name: '3veta',
+      icon: '3v',
+      color: 'bg-purple-500'
+    }
+  ];
+
   return (
     <>
     
@@ -16,10 +67,9 @@ export default function Workflow() {
       </div>
 
 
-      <div className="max-w-full mx-auto mt-6">
+      {/* <div className="max-w-full mx-auto mt-6">
         <div className="bg-white rounded-lg shadow-md p-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Left side - Image */}
             <div className="w-full md:w-1/3 bg-blue-50 rounded-lg p-4">
               <img
                 src="./img/workflow.png"
@@ -28,7 +78,6 @@ export default function Workflow() {
               />
             </div>
 
-            {/* Right side - Content */}
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">
                 Add <span className="text-blue-600">new</span> Workflow
@@ -91,6 +140,66 @@ export default function Workflow() {
 
             </div>
           </div>
+        </div>
+      </div> */}
+
+
+      <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">
+              P
+            </div>
+            <div>
+              <div className="text-gray-500 mb-1">Trigger : When this happens ...</div>
+              <h2 className="text-xl font-bold">
+                1. Choose Your First Application : <span className="text-gray-500">Trigger</span>
+              </h2>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="px-3 py-1 bg-green-100 text-green-600 rounded-md text-sm">
+              Free Task
+            </span>
+            <button className="p-2 hover:bg-gray-100 rounded">
+              <MoreVertical size={20} />
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded">
+              <ChevronUp size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* Search */}
+        <div className="mb-6">
+          <h3 className="text-lg font-bold mb-3">Choose App</h3>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+
+        {/* App Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {apps.map(app => (
+            <button
+              key={app.id}
+              className="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition-all text-center"
+            >
+              <div className={`w-12 h-12 ${app.color} text-white rounded-full flex items-center justify-center mx-auto mb-2`}>
+                {app.icon}
+              </div>
+              <div className="text-sm font-medium">{app.name}</div>
+              {app.subtitle && (
+                <div className="text-xs text-gray-500">{app.subtitle}</div>
+              )}
+            </button>
+          ))}
         </div>
       </div>
     
