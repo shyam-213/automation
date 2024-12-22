@@ -25,7 +25,7 @@ export default function Sidebar() {
   ];
 
   const sibarMenus = [
-    { name: "Dashboard", href: "/dashboard", icons: <IoMdHome /> },
+    { name: "Dashboard", href: "/", icons: <IoMdHome /> },
     { name: "Workflows", href: "/workflow", icons: <GrSettingsOption /> },
     { name: "History", href: "/history", icons: <FaTasks /> },
     { name: "Setting", href: "/setting", icons: <IoIosSettings /> },
@@ -60,7 +60,7 @@ export default function Sidebar() {
                   ></path>
                 </svg>
               </button>
-              <a href={'/dashboard'} class="flex ms-2 md:me-24">
+              <a href={'/'} class="flex ms-2 md:me-24">
                 <img
                   src="./img/logo.svg"
                   class="h-8 me-3"

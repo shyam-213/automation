@@ -18,32 +18,21 @@ import Workflow from "./Dashboard/Component/Workflow";
 
 const App = () => {
 
-  const [isLogin, setisLogin] = useState(false)
+  const [isLogin, setisLogin] = useState(true)
 
   return (
     <>
       <BrowserRouter>
         {
-          isLogin ? <><Navbar />
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/Signup" element={<Signup />}></Route>
-              <Route path="/Signin" element={<Signin />}></Route>
-              <Route path="/forgotPassword" element={<ForgotPassword />}></Route>
-              <Route path="/pricing" element={<Pricing />}></Route>
-            </Routes>
-          </>
-
-            :
+          isLogin ? 
             
-              <div className="flex h-screen overflow-y-auto">
+            <div className="flex h-screen overflow-y-auto">
                 <div className="fixed top-0 left-0 w-36 z-50">
                   <Sidebar />
                 </div>
                 <div className="lg:ml-56 md:ml-40 mt-20 flex-1 max-sm:p-0 p-10">
                   <Routes>
                     <Route path="/" element={<Dashboard />}></Route>
-                    <Route path="/dashboard" element={<Dashboard />}></Route>
                     <Route path="/workflow" element={<Workflow />}></Route>
                     <Route path="/history" element={<History />}></Route>
                     <Route path="/setting" element={<Setting />}></Route>
@@ -51,6 +40,18 @@ const App = () => {
                   </Routes>
                 </div>
               </div>
+
+            :
+            <><Navbar />
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/Signup" element={<Signup />}></Route>
+                <Route path="/Signin" element={<Signin />}></Route>
+                <Route path="/forgotPassword" element={<ForgotPassword />}></Route>
+                <Route path="/pricing" element={<Pricing />}></Route>
+              </Routes>
+            </>
+              
         }
 
 
