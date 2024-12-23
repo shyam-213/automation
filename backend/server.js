@@ -1,38 +1,42 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
+const bcrypt = require('bcryptjs');
 const cors = require("cors");
+const app = express();
+app.use(express.json())
+app.use(cors())
 
-mongoose.connect("mongodb://0.0.0.0:27017/selkey").then(() => 
+
+const userModel = require("./Models/Users");
+
+mongoose.connect("mongodb://localhost:27017/ck").then(() => 
   console.log("Connected to MongoDB successfully")
 ).catch((error) => {
   console.log(error);
 });
 
-const app = express();
-app.use(express.json())
-app.use(cors())
-const port = process.env.PORT || 5000;
+app.post("/SignUp", async (req, res) => {
+  try {
+    const { firstName, lastName, email, password } = req.body;
+    console.log(firstName + lastName + email + password)
+    const exitEmail = await userModel.findOne({ email });
+    console.log(exitEmail);
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "cache-control",
-      "expires",
-      "pragma",
-    ],
-    credentials: true,
-  })
-);
+    if (exitEmail)
+    {
+      return res.status(400).json({ error: "Email exist" });
+    }
+    const hashPassword = await bcrypt.hash(password, 12);
+    const newUser = new userModel({ firstName, lastName, email, password:hashPassword});
+    const saveUser = await newUser.save();
+    res.status(201).json(saveUser);
+  }
+  catch (error)
+  {
+    res.status(500).json({ error: error.message });
+  }
+})
 
-app.use(cookieParser());
-app.use(express.json());
-
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(1234, () => {
+  console.log(`Server is running on port 1234`);
 });

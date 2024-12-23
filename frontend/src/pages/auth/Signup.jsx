@@ -1,75 +1,48 @@
 "use client";
 
+import axios from "axios";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 
-const initialState = {
-  fname: "",
-  lname: "",
-  email: "",
-  password: "",
-  cnfPassword: "",
-  agreed: false,
-}
+
 
 export default function Signup() {
   const [agreed, setAgreed] = useState(false);
   const navigate = useNavigate();
 
+  const [firstName, setfirstName] = useState()
+  const [lastName, setlastName] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [cpassword, setcpassword] = useState()
 
-  const [fname, setfname] = useState();
-  const [lname, setlname] = useState();
-  const [email, setemail] = useState();
-  const [password, setpassword] = useState();
-  const [cnfPassword, setcnfPassword] = useState();
-
-  const handelSubmit = (event) => { 
-    event.preventDefault();
-    if(fname === "" || lname === "" || email === "" || password === "" || cnfPassword === ""){
-      toast({
-        title: "Please fill all the fields",
-        variant: "destructive",
-      });
-      return;
+  const handelSignUp = (e) => { 
+    e.preventDefault();
+    if (password == cpassword)
+    {
+      axios.post("http://localhost:1234/SignUp", { firstName, lastName, email, password })
+        .then(result => {
+          if (result.status == 201) {
+            console.log("Success");
+            navigate('/Signin');
+          }
+        })
+        .catch(err => {
+          if (err.response && err.response.status === 400) {
+            window.alert("exiest");
+          }
+          else {
+            console.log(err);
+          }
+        })
     }
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()_\-+={}[\]|\'<>?/])\S{8,}$/;
-    if (!passwordRegex.test(password)) {
-      toast({
-        title: "Password must contain at least one uppercase letter \n one lowercase letter \n one digit \n one special character",
-          variant: "destructive",
-      });
-      return;
-    }
-    if(password.length < 8){
-      toast({
-        title: "Password must be at least 8 characters long",
-        variant: "destructive",
-      });
-      return;
-    }
-    if(password !== cnfPassword){
-      toast({
-        title: "Password and Confirm Password do not match",
-        variant: "destructive",
-      });
-      return;
-    }
-    else{
-      dispatch(registerUser(fname, lname, email, password)).then((data) => {
-        if (data?.payload?.success) {
-          toast({
-            title: data?.payload?.message,
-          });
-          navigate("/signin");
-        } else {
-          toast({
-            title: data?.payload?.message,
-            variant: "destructive",
-          });
-        }
-      });
-    }
+    else
+    {
+      window.alert("paswodsdsafdsdfd");
+      }
+    
   }
+
 
   return (
     <div className="bg-white px-6 sm:py-10 lg:px-3">
@@ -87,7 +60,7 @@ export default function Signup() {
         </p>
       </div>
 
-      <form action="" onSubmit={handelSubmit} className="mx-auto max-w-xl sm:mt-10">
+      <form action="" onSubmit={handelSignUp} className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -101,7 +74,7 @@ export default function Signup() {
                 id="firstName"
                 name="firstName"
                 type="text"
-                onChange={(e)=>setfname(e.target.value)}
+                onChange={(e) =>setfirstName(e.target.value)}
                 placeholder="Enter your first name"
                 autoComplete="given-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -121,7 +94,7 @@ export default function Signup() {
                 id="lastName"
                 name="lastName"
                 type="text"
-                onChange={(e)=>setlname(e.target.value)}
+                onChange={(e)=>setlastName(e.target.value)}
                 placeholder="Enter your last name"
                 autoComplete="family-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -141,7 +114,7 @@ export default function Signup() {
                 id="email"
                 name="email"
                 type="email"
-                onChange={(e)=>setemail(e.target.value)}
+                onChange={(e)=>setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -161,7 +134,7 @@ export default function Signup() {
                 id="password"
                 name="password"
                 type="password"
-                onChange={(e)=>setpassword(e.target.value)}
+                onChange={(e)=>setPassword(e.target.value)}
                 placeholder="Create a password"
                 autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -181,7 +154,7 @@ export default function Signup() {
                 id="cnfPassword"
                 name="cnfPassword"
                 type="password"
-                onChange={(e)=>setcnfPassword(e.target.value)}
+                onChange={(e) => setcpassword(e.target.value)}
                 placeholder="Confirm your password"
                 autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
