@@ -14,6 +14,7 @@ export default function Signin() {
   const navigate=useNavigate()
 
   const handelLogin = (e) => { 
+    e.preventDefault();
     axios.post("http://localhost:1234/Login", { email, password })
       .then(result => { 
         if (result.data === "success")

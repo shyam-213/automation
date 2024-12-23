@@ -29,7 +29,7 @@ export default function Signup() {
         })
         .catch(err => {
           if (err.response && err.response.status === 400) {
-            window.alert("exiest");
+            window.alert("Email already Exits");
           }
           else {
             console.log(err);
