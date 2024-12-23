@@ -37,6 +37,36 @@ app.post("/SignUp", async (req, res) => {
   }
 })
 
+
+app.post("/Login", async (req, res) => { 
+
+  try
+  {
+const { email, password } = req.body;
+  const user = await userModel.findOne({ email });
+  if (user)
+  {
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (passwordMatch)
+    {
+      res.json("success");
+    }
+    else
+    {
+      res.status(401).json("password not match");
+      }
+  }
+  else
+  {
+    res.status(401).json("not found");
+    }
+  }
+ catch (error)
+  {
+    res.status(5000).json({ error: error.message });
+  }
+})
+
 app.listen(1234, () => {
   console.log(`Server is running on port 1234`);
 });
