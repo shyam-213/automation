@@ -300,7 +300,7 @@ export default function Example() {
         </Dialog>
       </div>
 
-      {/* <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+     {/* <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl p-4">
           <a href={'/'} class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./img/logo.svg" class="h-8" alt="Flowbite Logo" />
@@ -425,7 +425,7 @@ export default function Example() {
           </div>
         </div>
 
-      </nav> */}
-    </>
+      </nav>  */}
+      </>
   );
 }
