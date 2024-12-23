@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+
+const initialState = {
+  fname: "",
+  lname: "",
+  email: "",
+  password: "",
+  cnfPassword: "",
+  agreed: false,
+}
 
 export default function Signup() {
   const [agreed, setAgreed] = useState(false);
@@ -13,22 +21,54 @@ export default function Signup() {
   const [lname, setlname] = useState();
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
+  const [cnfPassword, setcnfPassword] = useState();
 
   const handelSubmit = (event) => { 
     event.preventDefault();
-    dispatch(registerUser(formData)).then((data) => {
-      if (data?.payload?.success) {
-        toast({
-          title: data?.payload?.message,
-        });
-        navigate("/signin");
-      } else {
-        toast({
-          title: data?.payload?.message,
+    if(fname === "" || lname === "" || email === "" || password === "" || cnfPassword === ""){
+      toast({
+        title: "Please fill all the fields",
+        variant: "destructive",
+      });
+      return;
+    }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()_\-+={}[\]|\'<>?/])\S{8,}$/;
+    if (!passwordRegex.test(password)) {
+      toast({
+        title: "Password must contain at least one uppercase letter \n one lowercase letter \n one digit \n one special character",
           variant: "destructive",
-        });
-      }
-    });
+      });
+      return;
+    }
+    if(password.length < 8){
+      toast({
+        title: "Password must be at least 8 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+    if(password !== cnfPassword){
+      toast({
+        title: "Password and Confirm Password do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+    else{
+      dispatch(registerUser(fname, lname, email, password)).then((data) => {
+        if (data?.payload?.success) {
+          toast({
+            title: data?.payload?.message,
+          });
+          navigate("/signin");
+        } else {
+          toast({
+            title: data?.payload?.message,
+            variant: "destructive",
+          });
+        }
+      });
+    }
   }
 
   return (
@@ -138,9 +178,10 @@ export default function Signup() {
             </label>
             <div className="mt-2.5">
               <input
-                id="confirmPassword"
-                name="confirmPassword"
+                id="cnfPassword"
+                name="cnfPassword"
                 type="password"
+                onChange={(e)=>setcnfPassword(e.target.value)}
                 placeholder="Confirm your password"
                 autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
