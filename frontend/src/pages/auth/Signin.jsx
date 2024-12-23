@@ -11,22 +11,20 @@ export default function Signin() {
 
   const [email, setemail] = useState();
   const [password, setpassword] = useState()
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
-  const handelLogin = (e) => { 
+  const handelLogin = (e) => {
     e.preventDefault();
     axios.post("http://localhost:1234/Login", { email, password })
-      .then(result => { 
-        if (result.data === "success")
-        {
-          navigate('/pricing');
+      .then(result => {
+        if (result.data === "Success") {
+          navigate('/pricing')
         }
-        else
-        {
-          alert("failed to login");
-          }
+        else {
+          window.alert("failed Login");
+        }
       })
-      .catch(err =>console.log(err))
+      .catch(err => console.log(err));
   }
 
   return (
@@ -45,7 +43,7 @@ export default function Signin() {
         </p>
       </div>
 
-      <form action="#" onSubmit={handelLogin} className="mx-auto max-w-xl sm:mt-10">
+      <form action="" onSubmit={handelLogin} className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label
@@ -59,7 +57,7 @@ export default function Signin() {
                 id="email"
                 name="email"
                 type="email"
-                onClick={(e) => setemail(e.target.value)}
+                onChange={(e) => setemail(e.target.value)}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -79,7 +77,7 @@ export default function Signin() {
                 id="password"
                 name="password"
                 type="password"
-                onClick={(e) => setpassword(e.target.value)}
+                onChange={(e) => setpassword(e.target.value)}
                 placeholder="Password"
                 autoComplete="password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"

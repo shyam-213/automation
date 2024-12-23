@@ -17,6 +17,7 @@ import Workflow from "./Dashboard/Component/Workflow";
 import Footer1 from "./Dashboard/Component/Footer1";
 
 
+
 const App = () => {
 
   const [isLogin, setisLogin] = useState(false)
@@ -33,7 +34,7 @@ const App = () => {
                 </div>
                 <div className="lg:ml-56 md:ml-40 mt-20 flex-1 max-sm:p-0 p-10">
                   <Routes>
-                    <Route path="/ck" element={<Dashboard />}></Route>
+                    <Route path="/" element={<Dashboard />}></Route>
                     <Route path="/workflow" element={<Workflow />}></Route>
                     <Route path="/history" element={<History />}></Route>
                     <Route path="/setting" element={<Setting />}></Route>
@@ -45,6 +46,7 @@ const App = () => {
 
             :
             <><Navbar />
+          
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/Signup" element={<Signup />}></Route>

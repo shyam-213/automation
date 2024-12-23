@@ -1,7 +1,8 @@
-import { CheckCircle2 } from "lucide-react";
-import { pricingOptions } from "../constants/Constants";
+
+import { useLoaderData, useLocation } from "react-router-dom";
 
 const Pricing = () => {
+
   return (
     // <div className="mt-20">
     //   <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-8 tracking-wide">
@@ -46,9 +47,10 @@ const Pricing = () => {
 
     <>
     
+      
     
       <div className="container mx-auto ">
-        <h2 className="text-4xl my-14 uppercase max-sm:text-3xl max-md:text-4xl  font-semibold text-center">Pricing</h2>
+        <h2 className="text-4xl my-14 uppercase max-sm:text-3xl max-md:text-4xl  font-semibold text-center">`Pricing`</h2>
         <div className="grid grid-cols-1 justify-items-center gap-3 lg:grid-cols-4 lg:p-6 sm:grid-cols-2">
 
           
