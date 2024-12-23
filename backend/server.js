@@ -9,7 +9,7 @@ app.use(cors())
 
 const userModel = require("./Models/Users");
 
-mongoose.connect("mongodb://localhost:27017/selkey").then(() => 
+mongoose.connect("mongodb+srv://shyam:shyam123@selkey-automation.efwbl.mongodb.net/Selkey").then(() => 
   console.log("Connected to MongoDB successfully")
 ).catch((error) => {
   console.log(error);
