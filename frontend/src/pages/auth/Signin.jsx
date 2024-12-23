@@ -16,9 +16,9 @@ export default function Signin() {
   const handelLogin = (e) => { 
     axios.post("http://localhost:1234/Login", { email, password })
       .then(result => { 
-        if (result.data == "success")
+        if (result.data === "success")
         {
-          navigate('/ck');
+          navigate('/pricing');
         }
         else
         {
