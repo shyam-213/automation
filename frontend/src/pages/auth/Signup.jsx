@@ -38,7 +38,7 @@ export default function Signup() {
     }
     else
     {
-      window.alert("paswodsdsafdsdfd");
+      window.alert("Password dose not match");
       }
     
   }
