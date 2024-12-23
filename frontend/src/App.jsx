@@ -33,7 +33,7 @@ const App = () => {
                 </div>
                 <div className="lg:ml-56 md:ml-40 mt-20 flex-1 max-sm:p-0 p-10">
                   <Routes>
-                    <Route path="/" element={<Dashboard />}></Route>
+                    <Route path="/ck" element={<Dashboard />}></Route>
                     <Route path="/workflow" element={<Workflow />}></Route>
                     <Route path="/history" element={<History />}></Route>
                     <Route path="/setting" element={<Setting />}></Route>

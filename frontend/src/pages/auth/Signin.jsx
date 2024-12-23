@@ -3,8 +3,31 @@
 import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { Field, Label, Switch } from "@headlessui/react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
+
+
+  const [email, setemail] = useState();
+  const [password, setpassword] = useState()
+  const navigate=useNavigate()
+
+  const handelLogin = (e) => { 
+    axios.post("http://localhost:1234/Login", { email, password })
+      .then(result => { 
+        if (result.data == "success")
+        {
+          navigate('/ck');
+        }
+        else
+        {
+          alert("failed to login");
+          }
+      })
+      .catch(err =>console.log(err))
+  }
+
   return (
     <div className="bg-white px-6 sm:py-10 lg:px-8">
       <div className="sm:mx-auto text-center sm:w-full sm:max-w-sm">
@@ -21,7 +44,7 @@ export default function Signin() {
         </p>
       </div>
 
-      <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-10">
+      <form action="#" onSubmit={handelLogin} className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label
@@ -35,6 +58,7 @@ export default function Signin() {
                 id="email"
                 name="email"
                 type="email"
+                onClick={(e) => setemail(e.target.value)}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -54,6 +78,7 @@ export default function Signin() {
                 id="password"
                 name="password"
                 type="password"
+                onClick={(e) => setpassword(e.target.value)}
                 placeholder="Password"
                 autoComplete="password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
