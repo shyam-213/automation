@@ -1,9 +1,12 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const User = require('../Models/Users');
 
-//register  user
-const registerUser = async (req, res) => {
-    const { firstName, lastName, email, password } = req.body;
+//SignUp  user
+const signUpUser = async (req, res) => {
+    const { firstName, lastName, email, password , cnfPassword } = req.body;
+
+    console.log(firstName, lastName, email, password, cnfPassword);
 
     try {
         const checkUser = await User.findOne({ email });
@@ -13,6 +16,13 @@ const registerUser = async (req, res) => {
                 message: "User Already exists with the same email! Please try again",
             });
 
+        // if (password !== cnfPassword)
+        // {
+        //     return res.json({
+        //         success: false,
+        //         message: "Password and confirm password doesn't match! Please try again",
+        //     });
+        // }
         const hashPassword = await bcrypt.hash(password, 12);
         const newUser = new User({
             firstName,
@@ -35,7 +45,7 @@ const registerUser = async (req, res) => {
 };
 
 //login user
-const loginUser = async (req, res) => {
+const signinUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -72,7 +82,7 @@ const loginUser = async (req, res) => {
             user: {
                 email: checkUser.email,
                 id: checkUser._id,
-                userName: checkUser.userName,
+                userName: checkUser.firstName + checkUser.lastName,
             },
         });
     } catch (e) {
@@ -94,7 +104,7 @@ const logoutUser = (req, res) => {
 
 
 module.exports = {
-    registerUser,
-    loginUser,
+    signUpUser,
+    signinUser,
     logoutUser
 }

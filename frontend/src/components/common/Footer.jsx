@@ -123,8 +123,7 @@ const Footer = () => {
 
           <div class="lg:flex md:justify-between">
             <div class="mb-6 md:mb-0 max-lg:w-full w-2/5">
-              <a href={'/'} class="flex items-center mb-4">
-                <img src="./img/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+              <a href={'/'} class="flex items-center mb-4">      
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Selkey Automation</span>
               </a>
               <span className="">Selkey Automation, <br />

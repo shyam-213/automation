@@ -1,31 +1,42 @@
-"use client";
-
 import { useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import { Field, Label, Switch } from "@headlessui/react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "@/store/auth-slice";
+import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import icons
 
-export default function Signin() {
-
-
+function Signin() {
   const [email, setemail] = useState();
-  const [password, setpassword] = useState()
-  const navigate=useNavigate()
+  const [password, setpassword] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { toast } = useToast();
 
-  const handelLogin = (e) => { 
-    axios.post("http://localhost:1234/Login", { email, password })
-      .then(result => { 
-        if (result.data == "success")
-        {
-          navigate('/ck');
-        }
-        else
-        {
-          alert("failed to login");
-          }
-      })
-      .catch(err =>console.log(err))
+  function handelLogin(e) {
+    e.preventDefault();
+    if (email == "" || password == "") {
+      toast({
+        title: 'Please fill all the fields',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    dispatch(login({ email, password })).then((data) => {
+      if (data?.payload?.success) {
+        toast({
+          title: data?.payload?.message || "Login Successful"
+        });
+        navigate('/pricing');
+      }
+      else {
+        toast({
+          title: data?.payload?.message || "Login Failed",
+          variant: "destructive",
+        });
+      }
+    });
   }
 
   return (
@@ -44,7 +55,11 @@ export default function Signin() {
         </p>
       </div>
 
-      <form action="#" onSubmit={handelLogin} className="mx-auto max-w-xl sm:mt-10">
+      <form
+        action="#"
+        onSubmit={handelLogin}
+        className="mx-auto max-w-xl sm:mt-10"
+      >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label
@@ -73,16 +88,27 @@ export default function Signin() {
             >
               Password
             </label>
-            <div className="mt-2.5">
+            <div className="relative mt-2.5">
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 onClick={(e) => setpassword(e.target.value)}
                 placeholder="Password"
                 autoComplete="password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? (
+                  <FaEyeSlash className="h-5 w-5" />
+                ) : (
+                  <FaEye className="h-5 w-5" />
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -98,12 +124,18 @@ export default function Signin() {
 
         <div className="mt-4 flex items-center justify-between">
           <p className="text-sm/6 text-gray-500">
-            Don't have an account?{' '}
-            <a href="/Signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
+            Don't have an account?{" "}
+            <a
+              href="/Signup"
+              className="font-semibold text-indigo-600 hover:text-indigo-500"
+            >
               Sign Up
             </a>
           </p>
-          <a href="/forgotPassword" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+          <a
+            href="/forgotPassword"
+            className="text-sm font-semibold text-indigo-600 hover:text-indigo-500"
+          >
             Forgot password?
           </a>
         </div>
@@ -111,3 +143,5 @@ export default function Signin() {
     </div>
   );
 }
+
+export default Signin;

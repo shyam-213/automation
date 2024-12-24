@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from 'react'
+import { useState } from "react";
+import logo from "../../assets/logo.png";
 import {
   IoIosSettings,
   IoMdHome,
@@ -8,11 +9,8 @@ import {
 import { GrSettingsOption } from "react-icons/gr";
 import { FaTasks } from "react-icons/fa";
 
-
-
 export default function Sidebar() {
-
-  const [selectedTab, setselectedTab] = useState("workflow")
+  // const [selectedTab, setselectedTab] = useState("workflow");
 
   const profile = [
     { name: "chetanKumar Panara", email: "chetanpanara88@gmail.com" },
@@ -60,11 +58,11 @@ export default function Sidebar() {
                   ></path>
                 </svg>
               </button>
-              <a href={'/'} class="flex ms-2 md:me-24">
+              <a href={"/"} class="flex ms-2 md:me-24">
                 <img
-                  src="./img/logo.svg"
-                  class="h-8 me-3"
-                  alt="FlowBite Logo"
+                  class="w-10 h-10"
+                  src={logo}
+                  alt="Selkey"
                 />
                 <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   Selkey Automation
@@ -93,12 +91,6 @@ export default function Sidebar() {
                   id="dropdown-user"
                 >
                   <div class="px-4 flex gap-x-4 py-3" role="none">
-                    {/* <p class="text-sm text-gray-900 dark:text-white" role="none">
-                      {profile[0].name}
-                    </p>
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                      {profile[0].email}
-                    </p> */}
                     <img
                       class="w-10 h-10 rounded-full"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"

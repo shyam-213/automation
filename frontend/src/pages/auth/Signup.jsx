@@ -1,48 +1,76 @@
-"use client";
-
-import axios from "axios";
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useToast } from "@/hooks/use-toast";
+import { signup } from "@/store/auth-slice";
+import { useDispatch } from "react-redux";
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import icons
 
-
-
-export default function Signup() {
+function Signup() {
   const [agreed, setAgreed] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { toast } = useToast();
 
-  const [firstName, setfirstName] = useState()
-  const [lastName, setlastName] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [cpassword, setcpassword] = useState()
+  const [firstName, setfirstName] = useState();
+  const [lastName, setlastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [cnfPassword, setcnfPassword] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCnfPassword, setShowCnfPassword] = useState(false);
 
-  const handelSignUp = (e) => { 
+  function onSubmit(e) {
     e.preventDefault();
-    if (password == cpassword)
-    {
-      axios.post("http://localhost:1234/SignUp", { firstName, lastName, email, password })
-        .then(result => {
-          if (result.status == 201) {
-            console.log("Success");
+    if (firstName == "" || lastName == "" || email == "" || password == "" || cnfPassword == "") {
+      toast({
+        title: 'Please fill all the fields',
+        variant: 'destructive',
+      });
+      return;
+    }
+    if (password.length < 8 || cnfPassword.length < 8) {
+      toast({
+        title: "Password must be at least 8 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()_\-+={}[\]|\'<>?/])\S{8,}$/;
+    if (!passwordRegex.test(password) || !passwordRegex.test(cnfPassword)) {
+      toast({
+        title: "Password must contain at least one uppercase letter \n one lowercase letter \n one digit \n one special character",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (password !== cnfPassword) {
+      toast({
+        title: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+    else {
+      console.log(firstName, lastName, email, password, cnfPassword);
+      dispatch(signup({ firstName, lastName, email, password,cnfPassword}))
+        .then((data) => {
+          if (data?.payload?.success) {
+            toast({
+              title: data?.payload?.message || "Registration Successful"
+            });
             navigate('/Signin');
           }
-        })
-        .catch(err => {
-          if (err.response && err.response.status === 400) {
-            window.alert("exiest");
-          }
           else {
-            console.log(err);
+            toast({
+              title: data?.payload?.message || "Registration Failed",
+              variant: 'destructive'
+            });
           }
-        })
+        });
     }
-    else
-    {
-      window.alert("paswodsdsafdsdfd");
-      }
-    
   }
-
 
   return (
     <div className="bg-white px-6 sm:py-10 lg:px-3">
@@ -60,7 +88,7 @@ export default function Signup() {
         </p>
       </div>
 
-      <form action="" onSubmit={handelSignUp} className="mx-auto max-w-xl sm:mt-10">
+      <form action="" onSubmit={onSubmit} className="mx-auto max-w-xl sm:mt-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -74,7 +102,7 @@ export default function Signup() {
                 id="firstName"
                 name="firstName"
                 type="text"
-                onChange={(e) =>setfirstName(e.target.value)}
+                onChange={(e) => setfirstName(e.target.value)}
                 placeholder="Enter your first name"
                 autoComplete="given-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -94,7 +122,7 @@ export default function Signup() {
                 id="lastName"
                 name="lastName"
                 type="text"
-                onChange={(e)=>setlastName(e.target.value)}
+                onChange={(e) => setlastName(e.target.value)}
                 placeholder="Enter your last name"
                 autoComplete="family-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -114,7 +142,7 @@ export default function Signup() {
                 id="email"
                 name="email"
                 type="email"
-                onChange={(e)=>setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
@@ -129,36 +157,58 @@ export default function Signup() {
             >
               Password
             </label>
-            <div className="mt-2.5">
+            <div className="relative mt-2.5">
               <input
                 id="password"
                 name="password"
-                type="password"
-                onChange={(e)=>setPassword(e.target.value)}
+                type={showPassword ? 'text' : 'password'}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Create a password"
                 autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? (
+                  <FaEyeSlash className="h-5 w-5" />
+                ) : (
+                  <FaEye className="h-5 w-5" />
+                )}
+              </button>
             </div>
           </div>
 
           <div className="sm:col-span-2">
             <label
-              htmlFor="confirmPassword"
+              htmlFor="cnfPassword"
               className="block text-sm/6 font-semibold text-gray-900"
             >
               Confirm Password
             </label>
-            <div className="mt-2.5">
+            <div className="relative mt-2.5">
               <input
                 id="cnfPassword"
                 name="cnfPassword"
-                type="password"
-                onChange={(e) => setcpassword(e.target.value)}
+                type={showCnfPassword ? 'text' : 'password'}
+                onChange={(e) => setcnfPassword(e.target.value)}
                 placeholder="Confirm your password"
                 autoComplete="new-password"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               />
+              <button
+                type="button"
+                onClick={() => setShowCnfPassword(!showCnfPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500 hover:text-gray-700"
+              >
+                {showCnfPassword ? (
+                  <FaEyeSlash className="h-5 w-5" />
+                ) : (
+                  <FaEye className="h-5 w-5" />
+                )}
+              </button>
             </div>
           </div>
 
@@ -196,3 +246,5 @@ export default function Signup() {
     </div>
   );
 }
+
+export default Signup;
