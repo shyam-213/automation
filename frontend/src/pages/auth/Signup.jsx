@@ -28,6 +28,7 @@ function Signup() {
       });
       return;
     }
+    // hello
     if (password.length < 8 || cnfPassword.length < 8) {
       toast({
         title: "Password must be at least 8 characters long",
